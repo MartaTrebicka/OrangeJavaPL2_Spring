@@ -10,4 +10,11 @@ class OrangeJavaPl2ApplicationTests {
 	void contextLoads() {
 	}
 
+
+	@Test
+	void testTest() {
+
+		System.out.println("merhaba!");
+	}
+
 }
