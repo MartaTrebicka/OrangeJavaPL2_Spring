@@ -6,11 +6,18 @@ import java.util.List;
 @Repository
 @RequiredArgsConstructor
 public class BreadRepository {
+    // to klasa ktora lączy projekt z JDRepository.
+    //odpowiedzialna za komunikację z bazą danych
+
     private final IBreadRepository breadRepository;
     public List<Bread> getAllBreads(){
-        return (List<Bread>) breadRepository.findAll();
+        return  breadRepository.findAll();
     }
     public void addBread(Bread bread) {
         breadRepository.save(bread);
+    }
+
+    public Bread getBreadByName(String name){
+       return breadRepository.findByName(name);
     }
 }
