@@ -20,12 +20,21 @@ public class BreadRestController {
     @GetMapping()
     public List<Bread> getAllBreads() {
         return breadService.getAllBreads();
-
     }
 
+    @PostMapping()
+    ResponseEntity addBread(@RequestBody Bread bread) {return breadService.addBread(bread);}
     // Controlles -> Services
 
+    @DeleteMapping(path = "/{id}")  //    /api/breads/{id}      Controller -> Service -> Repository ->JPARepo -> H2 database
+    public void deleteById(@PathVariable Long id) {
+        breadService.deleteById(id);
+    }
 
+    @PutMapping(path = "/{id}")
+public void updateBread(@PathVariable Long id, @RequestBody Bread bread) {
+        breadService.updateBread(id, bread.getName(), bread.getPrice(), bread.getType());
+    }
 //PostMapping without mapping error codes returrning to client
 //    @PostMapping()
 //    void addBread(@RequestBody Bread bread) {  // @RequestBody to map do bread
