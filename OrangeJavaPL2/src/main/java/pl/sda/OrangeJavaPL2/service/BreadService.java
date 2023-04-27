@@ -30,5 +30,8 @@ public void deleteById(Long id) {breadRepository.deleteBreadById(id);}
     public void updateBread(Long id, String name, BigDecimal price, String type) {
         breadRepository.updateBread(id, name, price, type);
     }
+
+    public void deleteBreadById(Long id) {
+    }
 }
 
