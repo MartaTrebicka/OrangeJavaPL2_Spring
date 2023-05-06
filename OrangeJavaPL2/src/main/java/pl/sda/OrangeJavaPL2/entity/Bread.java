@@ -13,33 +13,24 @@ import java.math.BigDecimal;
 @Table(name= "breads")  // TO ŻEBY TABELA NIE NAZYWAŁA SIĘ TAK SAMO JAK KLASA / CHANGE DEFAULT NAME TO CUSTOM ONE
 public class Bread {
 
-    @Id  // REQUIRED FOR ENTITY
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // AUTOINCREMENT ID WITH EVERY SINGLE OBJECT
+
+    @Id // Required for entity
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Autoincrement id with every single object
     Long id;
     String name;
     @Enumerated(EnumType.STRING)
     BreadType breadType;
-    @Column(name = "price_in_pln")  // CHANGE DEFAULT NAME TO CUSTOM ONE
+    @Column(name = "price_in_pln") // Change default name to custom one
     BigDecimal price;
 
-    public Bread(String name, BreadType breadType, BigDecimal price) {  // KONSTRUKTOR / EVERY SINGLE FIELD INCLUDED EXCEPT ID
+    public Bread(String name, BreadType breadType, BigDecimal price) {   //  KONSTRUKTOR / EVERY SINGLE FIELD INCLUDED EXCEPT ID
         this.name = name;
         this.breadType = breadType;
         this.price = price;
     }
-
-    public Bread(Long id, String name, BigDecimal price) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-    }
-
-    public Bread(String name, BigDecimal price) {
-        this.name = name;
-        this.price = price;
-    }
-
-    public String getType() {
-        return null;
-    }
 }
+
+//
+//
+//
+//

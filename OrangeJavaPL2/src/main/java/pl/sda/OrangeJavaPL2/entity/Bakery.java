@@ -24,6 +24,6 @@ public class Bakery {
     @OneToOne(cascade = CascadeType.ALL)
     Address address;
 
-    @Embedded
+    @Embedded // zamiast mapować ownera, to chcemy go wypakować coś tam
     Owner owner;
 }

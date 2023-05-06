@@ -7,9 +7,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
-public class AddressRepository {
+public class AddressRepository {  // DAO = Data Access Object (encja i baza danych!)
 
-    IAddressRepository addressRepository;
+   private final IAddressRepository addressRepository;
 
     public void addAddress(Address address){
         addressRepository.save(address);
@@ -20,4 +20,5 @@ public class AddressRepository {
                 .stream()
                 .collect(Collectors.toSet());
     }
+    // @Query
 }

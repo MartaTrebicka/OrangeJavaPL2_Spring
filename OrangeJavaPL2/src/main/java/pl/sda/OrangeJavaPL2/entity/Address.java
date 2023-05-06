@@ -12,8 +12,14 @@ import javax.persistence.*;
 
 public class Address {
 
+// encja - obiekt bazodanowy
+    // bezparametrowy konstruktor musi byc !!!!
+    // gettery i settery musza byc !!!
+    //  @Id  musi być !!!!
 
-    @Id   // primary key
+
+
+       @Id   // primary key
             @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String name;
@@ -21,6 +27,7 @@ public class Address {
     String postalCode;
     String country;
 
+    //all fields except id
     public Address(String name, String number, String postalCode, String country) {
         this.name = name;
         this.number = number;

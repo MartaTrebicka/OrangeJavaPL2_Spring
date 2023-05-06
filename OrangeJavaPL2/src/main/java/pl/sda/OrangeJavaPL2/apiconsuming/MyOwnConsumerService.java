@@ -11,30 +11,26 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 @Service
-@Slf4j // żeby działał log.info
-
-public class
-MyFirstConsumerService {
+@Slf4j
+public class MyOwnConsumerService {
 
     @PostConstruct
-    void callApi() throws IOException, InterruptedException {
+    void myApi() throws IOException, InterruptedException {
 
-        HttpClient httpClient = HttpClient.newHttpClient(); // odpowiedzialne za "strzelanie" do endpoint
+        HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .GET()
-                .uri(URI.create("https://www.boredapi.com/api/activity"))
+                .uri(URI.create("https://catfact.ninja/fact"))
                 .build();
+
         HttpResponse httpResponse = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
         log.info(httpResponse.body().toString());
+
+
     }
 
+
+
+
 }
-
-
-/*
-
-
-
-
- */
