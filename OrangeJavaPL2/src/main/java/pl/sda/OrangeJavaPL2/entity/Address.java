@@ -1,13 +1,16 @@
 package pl.sda.OrangeJavaPL2.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
+//@Data
 @NoArgsConstructor
+@AllArgsConstructor  // ?????
+//@RequiredArgsConstructor
 @Table(name ="addresses")
 
 public class Address {
@@ -20,7 +23,7 @@ public class Address {
 
 
        @Id   // primary key
-            @GeneratedValue(strategy = GenerationType.IDENTITY)
+            @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     String name;
     String number;

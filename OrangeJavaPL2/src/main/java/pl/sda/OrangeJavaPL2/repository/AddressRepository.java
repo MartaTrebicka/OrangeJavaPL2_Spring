@@ -2,7 +2,9 @@ package pl.sda.OrangeJavaPL2.repository;
 
 import lombok.RequiredArgsConstructor;
 import pl.sda.OrangeJavaPL2.entity.Address;
+//import pl.sda.OrangeJavaPL2.entity.Address;
 
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -19,6 +21,10 @@ public class AddressRepository {  // DAO = Data Access Object (encja i baza dany
         return addressRepository.findAll()
                 .stream()
                 .collect(Collectors.toSet());
+    }
+
+    public Optional<Address> getAddressById(Long id) {
+        return addressRepository.findById(id);
     }
     // @Query
 }

@@ -26,4 +26,15 @@ public class Bakery {
 
     @Embedded // zamiast mapować ownera, to chcemy go wypakować coś tam
     Owner owner;
+    // - unpack to bewlow fields;
+    // String firstName;
+    //String lastName;
+    // int age;
+
+
+    public Bakery(List<Bread> breadList, Address address, Owner owner) {
+        this.breadList = breadList;
+        this.address = address;
+        this.owner = owner;
+    }
 }
