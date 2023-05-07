@@ -35,5 +35,8 @@ public void deleteById(Long id) {breadRepository.deleteBreadById(id);}
     public Optional<Bread> getBreadById(Long id) {
         return breadRepository.getBreadById(id);
     }
+
+    public void deleteBreadById(Long id) {
+    }
 }
 

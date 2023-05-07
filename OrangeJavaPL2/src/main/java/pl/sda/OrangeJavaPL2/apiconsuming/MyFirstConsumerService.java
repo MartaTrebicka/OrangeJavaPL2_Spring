@@ -1,9 +1,11 @@
 package pl.sda.OrangeJavaPL2.apiconsuming;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -25,8 +27,14 @@ MyFirstConsumerService {
                 .uri(URI.create("https://www.boredapi.com/api/activity"))
                 .build();
         HttpResponse httpResponse = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+//JSON -> Java Object (POJO) (model class)
 
-        log.info(httpResponse.body().toString());
+        ObjectMapper objectMapper = new ObjectMapper();
+        MyFirstConsumerResponse response = objectMapper
+                .readValue(httpResponse.body().toString(),
+                        MyFirstConsumerResponse.class);
+
+        log.info(response.getActivity());
     }
 
 }
@@ -34,7 +42,17 @@ MyFirstConsumerService {
 
 /*
 
+//    {  TO JEST Z JASONA
+//        "activity": "Take a caffeine nap",
+//            "type": "relaxation",
+//            "participants": 1,
+//            "price": 0.1,
+//            "link": "",
+//            "key": "5092652",
+//            "accessibility": 0.08
+//
+PRZETŁUMACZONE Z JASONA NA JEZYK JAVA
 
-
+----> MyFirstConsumerResponse
 
  */

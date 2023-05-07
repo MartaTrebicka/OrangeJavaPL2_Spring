@@ -24,6 +24,7 @@ public class Bakery {
     @OneToOne(cascade = CascadeType.ALL)
     Address address;
 
+   // @OneToOne(cascade = CascadeType.ALL)
     @Embedded // zamiast mapować ownera, to chcemy go wypakować coś tam
     Owner owner;
     // - unpack to bewlow fields;
@@ -32,6 +33,7 @@ public class Bakery {
     // int age;
 
 
+    //CONSTRUCTOR WITH ALL FIELDS EXCEPT ID
     public Bakery(List<Bread> breadList, Address address, Owner owner) {
         this.breadList = breadList;
         this.address = address;
