@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {publish} from "rxjs";
 import {BreadService} from "./bread.service";
 import {Bread} from "./Bread";
 import {HttpErrorResponse} from "@angular/common/http";
@@ -12,28 +11,26 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class AppComponent implements OnInit {
   title = 'front-end-OrangeJavaPL2';
 
-  public breads: Bread[]=[];
+  public breads:Bread[]=[]
 
   constructor(private breadService: BreadService) {
   }
 
-  getBreads(): void {// METODA
-
+  getBreads(): void {
     this.breadService.getBreads().subscribe(
-      (response: Bread[]) =>  {
-        console.log("Cześć i czołem");
+      (response: Bread[]) => {
+        console.log("Eluwina Byku");
         console.log(response);
         this.breads = response
-      },(error: HttpErrorResponse) => {
+      }, (error: HttpErrorResponse) => {
         console.error(error.message)
       }
     );
   }
+
   ngOnInit(): void {
-  this.getBreads()
-
+    this.getBreads();
   }
-
 
 }
 
